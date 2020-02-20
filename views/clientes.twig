@@ -1,0 +1,45 @@
+{% extends "layout.twig" %}
+
+{% block title %}Clientes | Fastnet{% endblock %}
+
+{% set link_clientes = 'active-link' %} 
+
+{% block header %}
+	{% include "template/header_blue.twig" %}
+{% endblock %}
+
+{% block content %}
+	<div class="d-flex justify-content-between align-content-center">
+		<div class="title">
+			<h3 class="main-title">Clientes</h3>
+		</div>
+		<div class="button">
+			<a class="btn btn-light btn-sm border" href="/clientes/new">Crear Usuario</a>
+		</div>
+	</div>
+	<table class="table table-hover border">
+		<thead>
+			<tr>
+				<th>Nombres y apellidos</th>
+				<th>Documento</th>
+				<th>Celular</th>
+				<th>Accion</th>
+			</tr>
+		</thead>
+		<tbody>
+        {% for cliente in clientes %}
+			<tr>
+				<td>
+					<a href="/clientes/{{cliente.id}}/perfil">{{cliente.nombre}}</a>
+				</td>
+				<td>{{cliente.documento}}</td>
+				<td>{{cliente.celular}}</td>
+				<td>
+					<a href="/cliente/{{cliente.id}}/update" class="mx-1">Editar</a>
+					<a href="/cliente/{{cliente.id}}/delete" class="mx-1 text-danger">Eliminar</a>
+				</td>
+			</tr>
+        {% endfor %}
+		</tbody>
+	</table>
+{% endblock %}

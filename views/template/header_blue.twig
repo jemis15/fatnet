@@ -1,0 +1,42 @@
+<header class="header d-flex">
+	<aside class="d-flex flex-column justify-content-between align-items-center nav bg-azul">
+		<div class="d-flex flex-column">
+			<a class="c-white logo" href="/clientes">
+				<i class="fab fa-battle-net"></i>
+			</a>
+		</div>
+		<div class="position-relative">
+			<a class="c-white" href="#" id="modalj-buttom">
+				<i class="fas fa-user-circle"></i>
+			</a>
+			<div class="modal-create bg-white border p-2 rounded flex-column d-none" id="modalj-dialog">
+				<span class="size-9r mb-1">{{user.usuario}}</span>
+				<a class="size-7 hover text-decoration-none text-body" href="/usuarios/{{user.id}}">Ver Perfil</a>
+				<a class="size-7 hover text-decoration-none text-body" href="/logout">Logout</a>
+			</div>
+		</div>
+	</aside>
+
+	<aside class="bar bg-azul">
+		<div class="bar-header">
+			<span class="c-white">Fastnet</span>
+		</div>
+		<nav class="d-flex flex-column">
+			<a class="bar-link c-white {{link_clientes}}" href="/clientes">
+				<span>
+					<i class="fas fa-user-friends"></i>
+				</span>Clientes
+			</a>
+			<a class="bar-link c-white {{link_contratos}}" href="/contratos">
+				<span>
+					<i class="far fa-file"></i>
+				</span>Contratos
+			</a>
+			<a class="bar-link c-white {{link_tickets}}" href="/tickets">
+				<span>
+					<i class="fas fa-ticket-alt"></i>
+				</span>Tickets
+			</a>
+		</nav>
+	</aside>
+</header>

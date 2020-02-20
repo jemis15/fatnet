@@ -1,0 +1,39 @@
+<header class="header d-flex">
+	<aside class="d-flex flex-column justify-content-between align-items-center nav bg-azul">
+		<div class="d-flex flex-column">
+			<a class="c-white logo" href="/clientes">
+				<i class="fab fa-battle-net"></i>
+			</a>
+			<a class="c-white" href="#">
+				<i class="fas fa-plus"></i>
+			</a>
+		</div>
+		<div>
+			<a class="c-white" href="#">
+				<i class="fas fa-user-circle"></i>
+			</a>
+		</div>
+	</aside>
+	<aside class="bar bar2 bg-gris">
+		<div class="bar-header">
+			<span class="c-gris2 text-capitalize">{{cliente.nombre}}</span>
+		</div>
+		<nav class="d-flex flex-column">
+			<a class="bar-link c-gris {{link_perfil}}" href="/clientes/{{cliente.id}}/perfil">
+				<span>
+					<i class="fas fa-portrait"></i>
+				</span>Perfil
+			</a>
+			<a class="bar-link c-gris {{link_contratos}}" href="/clientes/{{cliente.id}}/contratos">
+				<span>
+					<i class="far fa-file"></i>
+				</span>Contratos
+			</a>
+			<a class="bar-link c-gris {{link_tickets}}" href="/clientes/{{cliente.id}}/tickets">
+				<span>
+					<i class="fas fa-ticket-alt"></i>
+				</span>Tickets
+			</a>
+		</nav>
+	</aside>
+</header>

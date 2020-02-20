@@ -1,0 +1,165 @@
+:root {
+  --azul1: rgb(5, 54, 127);
+  --azul2: rgb(7, 71, 166);
+  --azul3: #0052CC;
+  --azul4: #e3e7f1;
+  --white: #fff;
+  --texto: #fff;
+
+  --gris-texto: rgb(66, 82, 110);
+  --gris-texto2: #5E6C84;
+  --gris: rgb(244, 245, 247);
+  --gris2: rgb(235, 236, 240);
+  
+  --font-family-roboto: 'Roboto', sans-serif;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+body{
+  color: var(--gris-texto);
+}
+
+.c-white{
+  color: var(--white);
+}
+.c-gris{
+  color: var(--gris-texto);
+}
+.c-gris2{
+  color: var(--gris-texto2);
+}
+
+.bg-azul{
+  background-color: var(--azul2);
+}
+.bg-gris{
+  background-color: rgb(244, 245, 247);
+}
+
+.header{
+  height: 100vh;
+  position: fixed;
+}
+.nav{
+  padding-top: 20px;
+  padding-bottom: 20px;
+  width: 60px;
+  height: 100%;
+  font-size: 1.5rem;
+  border-right: 1px solid var(--azul1);
+}
+.logo{
+  font-size: 1.5em;
+  margin-left: -7px;
+  margin-bottom: 7px;
+}
+
+.bar{
+  width: 240px;
+  padding: 20px 15px;
+}
+.bar-header{
+  padding-left: 15px;
+  padding-bottom: 20px;
+  font-size: 1.7rem;
+}
+.bar-link{
+  width: 100%;
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+}
+.bar-link span{
+  display: inline-block;
+  width: 35px;
+}
+.bar-link:hover{
+  background: var(--azul3);
+  text-decoration: none;
+  color: var(--white);
+
+}
+.active-link{
+  background: var(--azul1);
+}
+
+.bar2 .bar-header{
+  font-size: 1rem;
+}
+.bar2 .bar-link:hover{
+  background: var(--gris2);
+  text-decoration: none;
+  color: var(--gris-texto2);
+}
+.active-link2{
+  background-color: var(--gris2);
+  color: var(--azul3);
+}
+
+/*body*/
+.main{
+  margin-top: 20px;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.main-title{
+  padding-bottom: 20px;
+}
+.table{
+  table-layout: fixed;
+  width: 100%;
+}
+
+
+
+.size-7r{
+  font-size: 0.7rem;
+}
+.size-8r{
+  font-size: 0.8rem;
+}
+.size-9r{
+  font-size: 0.9rem;
+}
+
+.size-7{
+  font-size: 0.7em;
+}
+.size-8{
+  font-size: 0.8em;
+}
+.size-9{
+  font-size: 0.9em;
+}
+
+.hover:hover{
+  background-color: var(--gris);
+}
+
+.modal-contenedor{
+  position: relative;
+}
+.modal-create{
+  width: 100px;
+  position: absolute;
+  bottom: 0;
+  left: 40px;
+}
+
+.text-black{
+  color: black;
+}
+
+
+@media (min-width: 100px){
+    .main{
+      margin-left: 300px;
+    }
+}

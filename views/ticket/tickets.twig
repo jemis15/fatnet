@@ -1,0 +1,58 @@
+{% extends "layout.twig" %}
+
+{% block title %}Tickes | Fastnet
+{% endblock %}
+
+{% set link_tickets = 'active-link2' %}
+
+{% block header %}
+	{% include "template/header_gris.twig" %}
+{% endblock %}
+
+{% block content %}
+	<div class="d-flex justify-content-between align-content-center">
+		<div class="title">
+			<h3 class="main-title">Tickets</h3>
+		</div>
+		<div class="button">
+			<a class="btn btn-light btn-sm border" href="/tickets/new">Nuevo Ticket</a>
+		</div>
+	</div>
+	<table class="table table-hover border">
+		<thead>
+			<tr>
+				<th>Numero</th>
+				<th>Cliente</th>
+				<th>Servico</th>
+				<th>Motivo</th>
+				<th>Fecha Inicio</th>
+				<th>Accion</th>
+			</tr>
+		</thead>
+		<tbody>
+        {% for ticket in cliente.tickets() %}
+			<tr>
+				<td>
+					<a href="/tickets/{{ticket.id}}">00{{ticket.id}}</a>
+				</td>
+				<td>
+					<a href="/clientes/{{ticket.cliente().id}}/perfil">00{{ticket.cliente().id}}</a>
+				</td>
+				<td>{{ticket.tipo_servicio}}</td>
+				<td class="text-truncate">{{ticket.motivo}}</td>
+				<td>{{ticket.fecha_inicio}}</td>
+				<td>
+					<a href="/tickets/{{ticket.id}}/update">Editar</a>
+					<a href="/tickets/{{ticket.id}}/delete">Eliminar</a>
+				</td>
+			</tr>
+			{% else %}
+				<td>Sin registro</td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+        {% endfor %}
+		</tbody>
+	</table>
+{% endblock %}

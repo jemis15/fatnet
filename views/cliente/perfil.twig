@@ -1,0 +1,117 @@
+{% extends "layout.twig" %}
+
+{% block title %}Clientes | Fastnet
+{% endblock %}
+
+{% set link_perfil = 'active-link2' %}
+
+{% block header %}
+	{% include "template/header_gris.twig" %}
+{% endblock %}
+
+{% block content %}
+	<div class="d-flex justify-content-between align-content-center">
+		<div class="title">
+			<h3 class="main-title">Perfil</h3>
+		</div>
+		<div class="button">
+			<a class="btn btn-light btn-sm border" href="/clientes/{{cliente.id}}/update">Editar Perfil</a>
+			<a class="btn btn-light btn-sm border" href="/clientes/{{cliente.id}}/delete">Delete</a>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col">
+			<div class="container border rounded py-3 mb-4">
+				<h5 class="font-weight-bold">Informacion Principal</h5>
+				<div class="mb-2">
+					<div>
+						<span class="size-8 text-muted">Nombre</span>
+					</div>
+					<div>
+						<span class="font-weight-bolder text-capitalize">{{cliente.nombre}}</span>
+					</div>
+				</div>
+				<div class="mb-2">
+					<div>
+						<span class="size-8 text-muted">Tipo</span>
+					</div>
+					<div>
+						<span class="font-weight-bolder">{{cliente.tipo}}</span>
+					</div>
+				</div>
+				<div class="mb-2">
+					<div>
+						<span class="size-8 text-muted">DNI</span>
+					</div>
+					<div>
+						<span class="font-weight-bolder">{{cliente.documento}}</span>
+					</div>
+				</div>
+			</div>
+			<div class="container border rounded py-3 mb-4">
+				<h5 class="font-weight-bold">Contacto</h5>
+				<div class="mb-2">
+					<div>
+						<span class="size-8 text-muted">Numero Celular</span>
+					</div>
+					<div>
+						<span class="font-weight-bolder">{{cliente.celular}}</span>
+					</div>
+				</div>
+				<div class="mb-2">
+					<div>
+						<span class="size-8 text-muted">Correo</span>
+					</div>
+					<div>
+						<span class="font-weight-bolder text-primary">{{cliente.correo}}</span>
+					</div>
+				</div>
+			</div>
+			<div class="container border rounded py-3 mb-4">
+				<h5 class="font-weight-bold">Otros</h5>
+				<div class="mb-2">
+					<div>
+						<span class="size-8 text-muted">Preferencia</span>
+					</div>
+					<div>
+						<span class="font-weight-bolder">{{cliente.preferencia}}</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col">
+			<div class="container border rounded py-3">
+				<h5 class="font-weight-bold">Servicios</h5>
+				<div class="mb-2">
+					<div>
+						<span class="size-8 text-muted">Contratos</span>
+					</div>
+					<div>
+						<span class="font-weight-bolder">
+                        {% for contrato in cliente.contratos() %}
+							<a href="/contratos/{{contrato.id}}">850</a><br>
+                            {% else %}
+                                No cuenta con contratos <a href="/contratos/new">crear uno</a>
+                        {% endfor %}
+						</span>
+					</div>
+				</div>
+				<div class="mb-2">
+					<div>
+						<span class="size-8 text-muted">Tickets</span>
+					</div>
+					<div>
+						<span class="font-weight-bolder">
+							{% for ticket in cliente.tickets() %}
+							<a href="/tickets/{{ticket.id}}">00{{ticket.id}} - {{ticket.tipo_servicio}}</a><br>
+                            {% else %}
+                                No cuenta con tickets <a href="/tickets/new">crear uno</a>
+                            {% endfor %}
+						</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

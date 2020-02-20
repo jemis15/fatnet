@@ -1,0 +1,51 @@
+{% extends "layout.twig" %}
+
+{% block title %}Contratos | Fastnet{% endblock %}
+
+{% set link_contratos = 'active-link' %} 
+
+{% block header %}
+	{% include "template/header_blue.twig" %}
+{% endblock %}
+
+{% block content %}
+	<div class="d-flex justify-content-between align-content-center">
+		<div class="title">
+			<h3 class="main-title">Contratos</h3>
+		</div>
+		<div class="button">
+			<a class="btn btn-light btn-sm border" href="/contratos/new">Nuevo Contrato</a>
+		</div>
+	</div>
+	<table class="table table-hover border">
+		<thead>
+			<tr>
+				<th>Contrato</th>
+				<th>Cliente</th>
+				<th>Fecha Inicio</th>
+				<th>Plan</th>
+				<th>Ip</th>
+				<th>Accion</th>
+			</tr>
+		</thead>
+		<tbody>
+        {% for contrato in contratos %}
+			<tr>
+				<td>
+					<a href="/clientes/{{contrato.id}}">00{{contrato.id}}</a>
+				</td>
+				<td class="text-truncate">
+					<a href="/clientes/{{contrato.cliente().id}}/perfil">{{contrato.cliente().nombre}}</a>
+				</td>
+				<td>{{contrato.fecha_inicio}}</td>
+				<td>{{contrato.tipo_contrato}} - {{contrato.plan().nombre}}</td>
+				<td>{{contrato.ip}}</td>
+				<td>
+					<a href="/contratos/{{contrato.id}}/update">Editar</a>
+					<a href="/contratos/{{contrato.id}}/delete">Eliminar</a>
+				</td>
+			</tr>
+        {% endfor %}
+		</tbody>
+	</table>
+{% endblock %}
